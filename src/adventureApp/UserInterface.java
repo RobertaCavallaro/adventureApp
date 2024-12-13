@@ -255,13 +255,23 @@ public class UserInterface extends JFrame implements Mappable
             }
         }
     }
-
-    private void displayImage(String imagePath)
+    
+    //Exception Handling
+    private void displayImage(String imagePath) 
     {
-        ImageIcon parkIcon = new ImageIcon(getClass().getResource(imagePath));
-        Image scaledImage = parkIcon.getImage().getScaledInstance(400, 300, Image.SCALE_SMOOTH);
-        mapLabel.setIcon(new ImageIcon(scaledImage));
+        try
+        {
+            ImageIcon parkIcon = new ImageIcon(getClass().getResource(imagePath));
+            Image scaledImage = parkIcon.getImage().getScaledInstance(400, 300, Image.SCALE_SMOOTH);
+            mapLabel.setIcon(new ImageIcon(scaledImage));
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("Image not found: " + imagePath);
+            mapLabel.setIcon(null);
+        }
     }
+
 
     private void fetchParkData(String parkName)
     {

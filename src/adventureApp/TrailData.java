@@ -62,11 +62,21 @@ public class TrailData
         }
     }
 
-    // Method to get list of trails
-    public List<TrailData> getTrailData()
+    // Method for  single-dimensional array 
+    public TrailData[] getTrailData()
     {
-        List<TrailData> trails = new ArrayList<>();
-        return trails;
+        // Single-dimensional array for storing trails
+        TrailData[] trailArray = new TrailData[5]; 
+
+        // Populate array 
+        trailArray[0] = new TrailData();
+        trailArray[1] = new TrailData();
+        trailArray[2] = new TrailData();
+        trailArray[3] = new TrailData();
+        trailArray[4] = new TrailData();
+
+      
+        return trailArray;
     }
 
     // Method to search a trail by name
